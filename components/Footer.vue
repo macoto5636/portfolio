@@ -6,7 +6,7 @@
         </a>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-sky-500 sm:mb-0">
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">About us</a>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">About me</a>
             </li>
             <li>
                 <a href="#" class="mr-4 hover:underline md:mr-6">Carrer</a>
@@ -15,7 +15,10 @@
                 <a href="#" class="mr-4 hover:underline md:mr-6 ">Skills</a>
             </li>
             <li>
-                <a href="#" class="hover:underline">Contact us</a>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">Works</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline">Contact</a>
             </li>
         </ul>
     </div>
