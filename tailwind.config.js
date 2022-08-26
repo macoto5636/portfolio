@@ -12,7 +12,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cyan: colors.cyan
+        'profile': '#AEAEAE',
+        'cyan': colors.cyan,
       }
     },
   },

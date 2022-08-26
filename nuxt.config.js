@@ -33,6 +33,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-microcms-module',
+    '@nuxtjs/moment'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -50,5 +51,9 @@ export default {
       apiKey: process.env.GET_API_KEY,
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
+  },
+  
+  moment: {
+    locales: ['ja']
   },
 }
