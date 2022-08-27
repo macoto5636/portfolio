@@ -34,10 +34,8 @@
       </div>
       <img class="w-2/3 object-cover object-center" :src="settings.mainImagePC.url+'?w=2000'" alt="top" />
     </div>
-    <div class="min-h-screen w-full mr-10 bg-gray-100">
-      <div class="pt-20 py-10 text-2xl text-gray-500 font-bold text-center">
-        About me
-      </div>
+    <div class="min-h-screen w-full bg-gray-100">
+      <SubTitle title="About me"></SubTitle>
       <div class="mx-auto w-4/6 bg-profile rounded-lg py-20">
         <div class="flex flex-wrap items-center">
           <div class="w-1/2">
@@ -51,6 +49,21 @@
             <p class="text-white">{{settings.selfIntroduction}}</p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="w-full mr-10">
+      <SubTitle title="Carrer"></SubTitle>
+      <div class="career w-2/3 mx-auto mb-32">
+        <dl>
+          <template v-for="carrer_item in carrer.contents">
+            <dt :key="carrer_item.id">
+              <div class="text-gray-500">{{carrer_item.period}}</div>
+            </dt>
+            <dd :key="carrer_item.id">
+              <CarrerBox :title="carrer_item.title" :text="carrer_item.text"></CarrerBox>
+            </dd>
+          </template>
+        </dl>
       </div>
     </div>
     <div class="min-h-screen grid grid-cols-3">
@@ -67,14 +80,14 @@
         {{settings.name}}
       </div>
     </div>
-
-    <!-- <Tutorial /> -->
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import moment from 'moment'
+import SubTitle from '~/components/SubTitle'
+import CarrerBox from '~/components/CarrerBox'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -85,9 +98,14 @@ export default Vue.extend({
 
     const birthday = moment(settings.birthday).format('YYYY年MM月DD日 生まれ');
 
+    const carrer = await $microcms.get({
+      endpoint: 'carrer',
+    })
+
     return {
       settings,
       birthday,
+      carrer,
     }
   }
 })
