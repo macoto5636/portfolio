@@ -55,12 +55,12 @@
       <SubTitle title="Carrer"></SubTitle>
       <div class="career w-2/3 mx-auto mb-20">
         <dl>
-          <template v-for="carrer_item in carrer.contents">
-            <dt :key="carrer_item.id">
-              <div class="text-gray-500">{{carrer_item.period}}</div>
+          <template v-for="carrer in carrers">
+            <dt :key="carrer.period">
+              <div class="text-gray-500">{{carrer.period}}</div>
             </dt>
-            <dd :key="carrer_item.id">
-              <CarrerBox :title="carrer_item.title" :text="carrer_item.text"></CarrerBox>
+            <dd :key="carrer.title">
+              <CarrerBox :title="carrer.title" :text="carrer.text"></CarrerBox>
             </dd>
           </template>
         </dl>
@@ -87,15 +87,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="border-b transition duration-300 ease-in-out hover:bg-gray-200">
+              <tr v-for="skill in skills" :key="skill.name" class="border-b transition duration-300 ease-in-out hover:bg-gray-200">
                 <td class="text-sm text-gray-600 font-light px-6 py-4 whitespace-nowrap">
-                  Frontend
+                  {{skill.category}}
                 </td>
                 <td class="text-sm text-gray-600 font-light px-6 py-4 whitespace-nowrap">
-                  Javascript
+                  {{skill.name}}
                 </td>
                 <td class="text-sm text-gray-600 font-light px-6 py-4 whitespace-nowrap">
-                  ★★
+                  {{skill.level | levelToStar}}
                 </td>
               </tr>
             </tbody>
@@ -103,8 +103,8 @@
         </div>
         <p class="text-lg text-gray-500 font-bold">▶ 資格</p>
         <ul class="mt-3 mx-12 list-disc text-gray-500 space-y-2">
-          <li v-for="capacity_item in capacity.contents" :key="capacity_item.id">
-            {{capacity_item.name}}
+          <li v-for="exam in exams" :key="exam">
+            {{exam}}
           </li>
         </ul>
       </div>
@@ -120,6 +120,16 @@ import CarrerBox from '~/components/CarrerBox'
 
 export default Vue.extend({
   name: 'IndexPage',
+  filters: {
+    levelToStar: function (value) {
+      if (!parseInt(value)) return ''
+      var star = ""
+      for (let i = 0; i < value; i++) {
+        star = star + '★'
+      }
+      return star
+    },
+  },
   async asyncData({ $microcms }) {
     const settings = await $microcms.get({
       endpoint: 'settings',
@@ -127,19 +137,12 @@ export default Vue.extend({
 
     const birthday = moment(settings.birthday).format('YYYY年MM月DD日 生まれ');
 
-    const carrer = await $microcms.get({
-      endpoint: 'carrer',
-    })
-
-    const capacity = await $microcms.get({
-      endpoint: 'capacity',
-    })
-
     return {
       settings,
       birthday,
-      carrer,
-      capacity,
+      carrers: require(`~/assets/data/carrers.json`),
+      exams: require(`~/assets/data/exams.json`),
+      skills: require(`~/assets/data/skills.json`),
     }
   }
 })
