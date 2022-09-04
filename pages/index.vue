@@ -109,6 +109,12 @@
         </ul>
       </div>
     </div>
+    <div class="w-full mr-10">
+      <SubTitle title="Works"></SubTitle>
+      <div class="w-2/3 mx-auto pb-20">
+        <Accordion :works="works.contents"></Accordion>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -117,6 +123,7 @@ import Vue from 'vue'
 import moment from 'moment'
 import SubTitle from '~/components/SubTitle'
 import CarrerBox from '~/components/CarrerBox'
+import Accordion from '~/components/Accordion'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -134,15 +141,19 @@ export default Vue.extend({
     const settings = await $microcms.get({
       endpoint: 'settings',
     })
+    const works = await $microcms.get({
+      endpoint: 'works',
+    })
 
     const birthday = moment(settings.birthday).format('YYYY年MM月DD日 生まれ');
 
     return {
       settings,
       birthday,
-      carrers: require(`~/assets/data/carrers.json`),
-      exams: require(`~/assets/data/exams.json`),
-      skills: require(`~/assets/data/skills.json`),
+      carrers: require(`@/assets/data/carrers.json`),
+      exams: require(`@/assets/data/exams.json`),
+      skills: require(`@/assets/data/skills.json`),
+      works,
     }
   }
 })
