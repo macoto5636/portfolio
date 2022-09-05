@@ -35,7 +35,7 @@
       <img class="w-2/3 object-cover object-center" :src="settings.mainImagePC.url+'?w=2000'" alt="top" />
     </div>
     <div class="min-h-screen w-full bg-gray-100">
-      <SubTitle title="About me"></SubTitle>
+      <Title title="About me" additional="自己紹介"></Title>
       <div class="mx-auto w-4/6 bg-profile rounded-lg py-20">
         <div class="flex flex-wrap items-center">
           <div class="w-1/2">
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="w-full mr-10">
-      <SubTitle title="Carrer"></SubTitle>
+      <Title title="Carrer" additional="これまでとこれから"></Title>
       <div class="career w-2/3 mx-auto mb-20">
         <dl>
           <template v-for="carrer in carrers">
@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="min-h-screen w-full bg-gray-100">
-      <SubTitle title="Skills"></SubTitle>
+      <Title title="Skills" additional="スキルシート"></Title>
       <div class="w-2/3 mx-auto pb-20"> 
         <p class="text-lg text-gray-500 font-bold">▶ 技術</p>
         <p class="mt-3 mx-12 text-sm text-gray-500 text-center">習熟度目安　★：ちょっとさわった 　★★：調べながらであれば独力で使える　★★★：プロ</p>
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="w-full mr-10">
-      <SubTitle title="Works"></SubTitle>
+      <Title title="Works" additional="成果物"></Title>
       <div class="w-2/3 mx-auto pb-20">
         <Accordion :works="works.contents"></Accordion>
       </div>
@@ -121,7 +121,7 @@
 <script>
 import Vue from 'vue'
 import moment from 'moment'
-import SubTitle from '~/components/SubTitle'
+import Title from '~/components/Title'
 import CarrerBox from '~/components/CarrerBox'
 import Accordion from '~/components/Accordion'
 
