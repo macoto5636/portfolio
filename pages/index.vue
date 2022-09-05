@@ -115,6 +115,16 @@
         <Accordion :works="works.contents"></Accordion>
       </div>
     </div>
+     <div class="w-full bg-gray-100">
+      <Title title="Contact me" additional="連絡先"></Title>
+      <div class="w-2/3 mx-auto pb-20"> 
+        <div class="text-gray-500 text-center space-y-3">
+          <p>ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。</p>
+          <p>ご連絡やポートフォリオについてのコメントなどございましたら、<a href="https://twitter.com/maakitakita" class="text-cyan-500 hover:text-cyan-600">Twitter</a>のDMからお願いいたします。</p>
+        </div>
+        <button></button>
+      </div>
+    </div>
   </div>
 </template>
 
