@@ -91,3 +91,63 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.accordion {
+  width: 100%;
+  top: 67px;
+  left: 0;
+  overflow: scroll;
+  padding: 36px 16px;
+}
+
+.accordion__toggle {
+  line-height: 2.818;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 3px;
+    background-color: #6b7280;
+    position: absolute;
+    top: 50%;
+    right: 22px;
+  }
+
+  &::before {
+    transform: translate(0, -50%);
+  }
+
+  &::after {
+    transition: all 0.3s ease-in-out;
+    transform: translate(0, -50%) rotate(90deg);
+  }
+
+  &.is-active {
+    &::after {
+      transform: translate(0, -50%) rotate(0deg);
+    }
+  }
+}
+
+.topSlide {
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.topSlide-enter-active {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.topSlide-leave-active {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+</style>
