@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="flex flex-wrap w-full items-center">
+    <div class="min-h-screen flex flex-wrap w-full items-center">
       <div class="w-1/3">
-        <div class="h-full mr-10">
-          <ul class="list-none space-y-8 text-right text-gray-500">
+        <div class="mr-10">
+          <p class="text-lg font-semibold tracking-tight text-right">KITANO's Portfolio</p>
+          <ul class="mt-8 mb-5 list-none space-y-5 text-right text-gray-500">
             <li>
-              <a href="#responsive-header" class="text-teal-lighter hover:text-cyan-500">
+              <a href="#about_me" class="text-teal-lighter hover:text-cyan-500">
                 About me
               </a>
             </li>
@@ -32,9 +33,9 @@
           </ul>
         </div>
       </div>
-      <img class="w-2/3 object-cover object-center" :src="settings.mainImagePC.url+'?w=2000'" alt="top" />
+      <img class="w-2/3 min-h-screen object-cover" :src="settings.mainImagePC.url+'?w=2000'" alt="top" />
     </div>
-    <div class="min-h-screen w-full bg-gray-100">
+    <div id="about_me" ref="about_me" class="min-h-screen w-full bg-gray-100">
       <Title title="About me" additional="自己紹介"></Title>
       <div class="mx-auto w-4/6 bg-profile rounded-lg py-20">
         <div class="flex flex-wrap items-center">
@@ -120,7 +121,7 @@
       <div class="w-2/3 mx-auto pb-20"> 
         <div class="text-gray-500 text-center space-y-3">
           <p>ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。</p>
-          <p>ご連絡やポートフォリオについてのコメントなどございましたら、<a href="https://twitter.com/maakitakita" class="text-cyan-500 hover:text-cyan-600">Twitter</a>のDMからお願いいたします。</p>
+          <p>ご連絡やポートフォリオについてのコメントなどございましたら、<a href="https://twitter.com/maakitakita" target="_blank" class="text-cyan-500 hover:text-cyan-600">Twitter</a>のDMからお願いいたします。</p>
         </div>
         <button></button>
       </div>
@@ -131,9 +132,6 @@
 <script>
 import Vue from 'vue'
 import moment from 'moment'
-import Title from '~/components/Title'
-import CarrerBox from '~/components/CarrerBox'
-import Accordion from '~/components/Accordion'
 
 export default Vue.extend({
   name: 'IndexPage',
