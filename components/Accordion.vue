@@ -2,7 +2,7 @@
   <div class="accordion">
     <ul>
       <li v-for="(work, index) in works" :key="work.id">
-        <button type="button" class="accordion__toggle hover:bg-gray-100" :class="{ 'is-active': isOpen[index] }" @click="handleToggle(index)">
+        <button type="button" class="accordion__toggle transition duration-300 ease-in-out hover:bg-gray-100" :class="{ 'is-active': isOpen[index] }" @click="handleToggle(index)">
           <div class="mx-5 mt-2 flex w-full">
             <img class="w-5 object-contain" :src="work.icon.url+'?w=50'" />
             <span v-text="work.name" class="ml-2 text-gray-500 font-semibold" />
@@ -15,7 +15,7 @@
             <div class="w-1/2 my-3 text-gray-500">
               <table class="min-w-full">
                 <tbody>
-                  <tr class="border-b transition duration-300 ease-in-out">
+                  <tr class="border-b">
                     <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
                       使用技術
                     </td>
@@ -23,7 +23,7 @@
                       {{work.tech}}
                     </td>
                   </tr>
-                  <tr class="border-b transition duration-300 ease-in-out">
+                  <tr class="border-b">
                     <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
                       制作時期
                     </td>
@@ -31,7 +31,7 @@
                       {{work.span}}
                     </td>
                   </tr>
-                  <tr class="border-b transition duration-300 ease-in-out">
+                  <tr class="border-b">
                     <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
                       開発人数
                     </td>
