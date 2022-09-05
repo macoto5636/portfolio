@@ -1,34 +1,34 @@
 <template>
   <div>
-    <div class="min-h-screen flex flex-wrap w-full items-center">
+    <div id="top" class="min-h-screen flex flex-wrap w-full items-center">
       <div class="w-1/3">
         <div class="mr-10">
           <p class="text-lg font-semibold tracking-tight text-right">KITANO's Portfolio</p>
           <ul class="mt-8 mb-5 list-none space-y-5 text-right text-gray-500">
             <li>
-              <a href="#about_me" class="text-teal-lighter hover:text-cyan-500">
+              <nuxt-link v-scroll-to="'#about_me'" to class="text-teal-lighter hover:text-cyan-500">
                 About me
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a href="#responsive-header" class="text-teal-lighter hover:text-cyan-500">
+              <nuxt-link v-scroll-to="'#carrer'" to class="text-teal-lighter hover:text-cyan-500">
                 Carrer
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a href="#responsive-header" class="text-teal-lighter hover:text-cyan-500">
+              <nuxt-link v-scroll-to="'#skills'" to class="text-teal-lighter hover:text-cyan-500">
                 Skills
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a href="#responsive-header" class="text-teal-lighter hover:text-cyan-500">
+              <nuxt-link v-scroll-to="'#works'" to class="text-teal-lighter hover:text-cyan-500">
                 Works
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a href="#responsive-header" class="text-teal-lighter hover:text-cyan-500">
-                Contact
-              </a>
+              <nuxt-link v-scroll-to="'#contact_me'" to class="text-teal-lighter hover:text-cyan-500">
+                Contact me
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full mr-10">
+    <div id="carrer" class="w-full mr-10">
       <Title title="Carrer" additional="これまでとこれから"></Title>
       <div class="career w-2/3 mx-auto mb-20">
         <dl>
@@ -67,7 +67,7 @@
         </dl>
       </div>
     </div>
-    <div class="min-h-screen w-full bg-gray-100">
+    <div id="skills" class="min-h-screen w-full bg-gray-100">
       <Title title="Skills" additional="スキルシート"></Title>
       <div class="w-2/3 mx-auto pb-20"> 
         <p class="text-lg text-gray-500 font-bold">▶ 技術</p>
@@ -110,13 +110,13 @@
         </ul>
       </div>
     </div>
-    <div class="w-full mr-10">
+    <div id="works" class="w-full mr-10">
       <Title title="Works" additional="成果物"></Title>
       <div class="w-2/3 mx-auto pb-20">
         <Accordion :works="works.contents"></Accordion>
       </div>
     </div>
-     <div class="w-full bg-gray-100">
+    <div id="contact_me" class="w-full bg-gray-100">
       <Title title="Contact me" additional="連絡先"></Title>
       <div class="w-2/3 mx-auto pb-20"> 
         <div class="text-gray-500 text-center space-y-3">

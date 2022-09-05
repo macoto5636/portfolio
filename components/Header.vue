@@ -4,25 +4,27 @@
       <header class="header">
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="flex items-center flex-no-shrink text-black mr-6">
-            <span class="font-semibold text-lg tracking-tight">KITANO's Portfolio</span>
+            <nuxt-link v-scroll-to="'#top'" to class="font-semibold text-lg tracking-tight">
+              KITANO's Portfolio
+            </nuxt-link>
           </div>  
             <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
               <div class="text-sm md:flex-grow">
-                <a href="#responsive-header" class="block mt-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500 mr-4">
+                <nuxt-link v-scroll-to="'#about_me'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   About me
-                </a>
-                <a href="#responsive-header" class="block mt-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500 mr-4">
+                </nuxt-link>
+                <nuxt-link v-scroll-to="'#carrer'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   Carrer
-                </a>
-                <a href="#responsive-header" class="block mt-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500 mr-4">
+                </nuxt-link>
+                <nuxt-link v-scroll-to="'#skills'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   Skills
-                </a>
-                <a href="#responsive-header" class="block mt-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500 mr-4">
+                </nuxt-link>
+                <nuxt-link v-scroll-to="'#works'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   Works
-                </a>
-                <a href="#responsive-header" class="block mt-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
+                </nuxt-link>
+                <nuxt-link v-scroll-to="'#contact_me'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   Contact me
-                </a>
+                </nuxt-link>
               </div>
             </div> 
         </nav>
