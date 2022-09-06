@@ -5,7 +5,7 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="flex items-center flex-no-shrink text-black mr-6">
             <nuxt-link v-scroll-to="'#top'" to class="font-semibold text-lg tracking-tight">
-              KITANO's Portfolio
+              NOKITA's Portfolio
             </nuxt-link>
           </div>  
             <div class="w-full block flex-grow md:flex md:items-center md:w-auto">

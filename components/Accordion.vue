@@ -16,33 +16,44 @@
               <table class="min-w-full">
                 <tbody>
                   <tr class="border-b">
-                    <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
                       使用技術
                     </td>
-                    <td class="text-sm text-gray-500 font-light px-6 py-4">
+                    <td class="text-sm font-light px-6 py-4">
                       {{work.tech}}
                     </td>
                   </tr>
                   <tr class="border-b">
-                    <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
                       制作時期
                     </td>
-                    <td class="text-sm text-gray-500 font-light px-6 py-4">
+                    <td class="text-sm font-light px-6 py-4">
                       {{work.span}}
                     </td>
                   </tr>
                   <tr class="border-b">
-                    <td class="text-sm text-gray-500 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
                       開発人数
                     </td>
-                    <td class="text-sm text-gray-500 font-light px-6 py-4">
+                    <td class="text-sm font-light px-6 py-4">
                       {{work.member}}
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <div class="text-sm text-grya-500 m-5">
-                テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+              <div class="text-sm m-5">
+                {{work.content}}
+              </div>
+              <div class="m-5 flex">
+                <a v-show="work.github1" :href="work.github1" target="_blank" >
+                  <img class="w-6 mr-2" src="@/assets/image/icon/github.png" />
+                </a>
+                <a v-show="work.github2" :href="work.github2" target="_blank" >
+                  <img class="w-6 mr-2" src="@/assets/image/icon/github.png" />
+                </a>
+                <a v-show="work.document" :href="work.document" target="_blank" >
+                  <img class="w-6 mr-2" src="@/assets/image/icon/whitebord.png" />
+                </a>
               </div>
             </div>
           </div>

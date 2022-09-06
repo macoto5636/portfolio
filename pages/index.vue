@@ -3,7 +3,7 @@
     <div id="top" class="min-h-screen flex flex-wrap w-full items-center">
       <div class="w-1/3">
         <div class="mr-10">
-          <p class="text-lg font-semibold tracking-tight text-right">KITANO's Portfolio</p>
+          <p class="text-lg font-semibold tracking-tight text-right">NOKITA's Portfolio</p>
           <ul class="mt-8 mb-5 list-none space-y-5 text-right text-gray-500">
             <li>
               <nuxt-link v-scroll-to="'#about_me'" to class="text-teal-lighter hover:text-cyan-500">
@@ -37,7 +37,7 @@
     </div>
     <div id="about_me" ref="about_me" class="min-h-screen w-full bg-gray-100">
       <Title title="About me" additional="自己紹介"></Title>
-      <div class="mx-auto w-4/6 bg-profile rounded-lg py-20">
+      <div class="mx-auto py-20 w-4/6 bg-gray-200 border border-gray-300 rounded-lg">
         <div class="flex flex-wrap items-center">
           <div class="w-1/2">
             <div>
@@ -45,9 +45,20 @@
             </div>
           </div>
           <div class="w-1/2 pr-20">
-            <p class="text-white text-lg font-bold">{{settings.name}}</p>
-            <p class="text-white my-5">{{birthday}}</p>
-            <p class="text-white">{{settings.selfIntroduction}}</p>
+            <p class="text-gray-500 text-lg font-bold">{{settings.name}}</p>
+            <p class="my-5 text-gray-500">{{birthday}}</p>
+            <p class="text-gray-500">{{settings.selfIntroduction}}</p>
+            <div class="flex mx-1 my-5">
+              <a :href="'https://github.com/'+settings.githubAccount" target="_blank" >
+                <img class="w-6" src="@/assets/image/icon/github.png" />
+              </a>
+              <a :href="'https://twitter.com/'+settings.twitterAccount" target="_blank" >
+                <img class="w-6 my-1 mx-3" src="@/assets/image/icon/twitter.png" />
+              </a>
+              <a :href="'https://qiita.com/'+settings.qiitarAccount" target="_blank" >
+                <img class="w-6" src="@/assets/image/icon/qiita.png" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -121,7 +132,7 @@
       <div class="w-2/3 mx-auto pb-20"> 
         <div class="text-gray-500 text-center space-y-3">
           <p>ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。</p>
-          <p>ご連絡やポートフォリオについてのコメントなどございましたら、<a href="https://twitter.com/maakitakita" target="_blank" class="text-cyan-500 hover:text-cyan-600">Twitter</a>のDMからお願いいたします。</p>
+          <p>ご連絡やポートフォリオについてのコメントなどございましたら、<a :href="'https://twitter.com/'+settings.twitterAccount" target="_blank" class="text-cyan-500 hover:text-cyan-600">Twitter</a>のDMからお願いいたします。</p>
         </div>
         <button></button>
       </div>
