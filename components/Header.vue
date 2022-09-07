@@ -2,14 +2,14 @@
   <transition>
     <div v-show="isShow" id="header" class="sticky top-0 z-50 bg-white">
       <header class="header">
-        <nav class="flex items-center justify-between flex-wrap p-6">
+        <nav class="flex items-center justify-between flex-wrap p-3 md:p-6">
           <div class="flex items-center flex-no-shrink text-black mr-6">
             <nuxt-link v-scroll-to="'#top'" to class="font-semibold text-lg tracking-tight">
               NOKITA's Portfolio
             </nuxt-link>
           </div>  
-            <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
-              <div class="text-sm md:flex-grow">
+            <div class="w-full block flex-grow items-center w-auto hidden md:flex">
+              <div class="text-sm">
                 <nuxt-link v-scroll-to="'#about_me'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
                   About me
                 </nuxt-link>
@@ -23,7 +23,7 @@
                   Works
                 </nuxt-link>
                 <nuxt-link v-scroll-to="'#contact_me'" to class="block mt-4 mr-4 text-gray-500 md:inline-block md:mt-0 text-teal-lighter hover:text-cyan-500">
-                  Contact me
+                  Contact
                 </nuxt-link>
               </div>
             </div> 

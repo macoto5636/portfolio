@@ -10,9 +10,9 @@
           </div>
         </button>
         <transition name="topSlide" @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave">
-          <div v-show="isOpen[index]" class="topSlide my-3 flex w-full" >
-            <img class="w-1/2 h-96 mx-5 object-contain" :src="work.image.url+'?w=500'" />
-            <div class="w-1/2 my-3 text-gray-500">
+          <div v-show="isOpen[index]" class="topSlide my-3 flex flex-wrap w-full" >
+            <img class="w-full object-contain px-3 md:w-1/2" :src="work.image.url+'?w=500'" />
+            <div class="w-full my-3 px-5 text-gray-500 md:w-1/2">
               <table class="min-w-full">
                 <tbody>
                   <tr class="border-b">
@@ -44,7 +44,7 @@
               <div class="text-sm m-5">
                 {{work.content}}
               </div>
-              <div class="m-5 flex">
+              <div class="mx-5 my-2 flex md:m5">
                 <a v-show="work.github1" :href="work.github1" target="_blank" >
                   <img class="w-6 mr-2" src="@/assets/image/icon/github.png" />
                 </a>
@@ -76,10 +76,6 @@ export default {
     this.isOpen[0] = true
   },
   methods: {
-    join(value) {
-      if (!value) return ''
-      return value.join(", ")
-    },
     handleToggle(index) {
       if (!this.isOpen[index]) {
         this.isOpen = Array(this.works.length).fill(false)
