@@ -104,7 +104,7 @@
                 />
               </a>
               <a
-                :href="'https://qiita.com/' + settings.qiitarAccount"
+                :href="'https://qiita.com/' + settings.qiitaAccount"
                 target="_blank"
               >
                 <img class="w-6" src="@/assets/image/icon/qiita.png" />
