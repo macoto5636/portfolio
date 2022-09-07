@@ -7,13 +7,20 @@ export default {
     title: "NOKITA's Portfolio",
     htmlAttrs: {
       lang: 'en',
+      prefix: 'og: http://ogp.me/ns#'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'のきたのポートフォリオ' },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'robots', content: 'noindex' },
+      { hid: 'og:site_name', property: 'og:site_name', content: "NOKITA's Portfolio" },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'url' },
+      { hid: 'og:title', property: 'og:title', content: "NOKITA's Portfolio" },
+      { hid: 'og:description', property: 'og:description', content: 'のきたのポートフォリオ' },
+      { hid: 'og:image', property: 'og:image', content: 'https://images.microcms-assets.io/assets/291ce8c4ee174f34a1fe670e1ca05b8e/666e0a4d5dc84a1fa18741fe1c4a0874/portfolio.png' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
