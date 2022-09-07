@@ -67,7 +67,7 @@
       <Title title="Carrer" additional="これまでとこれから"></Title>
       <div class="career w-2/3 mx-auto mb-20">
         <dl>
-          <template v-for="carrer in carrers">
+          <template v-for="carrer in carrers.contents">
             <dt :key="carrer.period">
               <div class="text-gray-500">{{carrer.period}}</div>
             </dt>
@@ -160,6 +160,9 @@ export default Vue.extend({
     const settings = await $microcms.get({
       endpoint: 'settings',
     })
+    const carrers = await $microcms.get({
+      endpoint: 'carrer',
+    })
     const works = await $microcms.get({
       endpoint: 'works',
     })
@@ -169,7 +172,7 @@ export default Vue.extend({
     return {
       settings,
       birthday,
-      carrers: require(`@/assets/data/carrers.json`),
+      carrers,
       exams: require(`@/assets/data/exams.json`),
       skills: require(`@/assets/data/skills.json`),
       works,

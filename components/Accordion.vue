@@ -85,7 +85,6 @@ export default {
         this.isOpen = Array(this.works.length).fill(false)
       }
       this.isOpen.splice(index, 1, !this.isOpen[index])
-      console.log(this.isOpen)
     },
     beforeEnter(el) {
       el.style.height = '0'
