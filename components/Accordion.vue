@@ -2,57 +2,77 @@
   <div class="accordion">
     <ul>
       <li v-for="(work, index) in works" :key="work.id">
-        <button type="button" class="accordion__toggle transition duration-300 ease-in-out hover:bg-gray-100" :class="{ 'is-active': isOpen[index] }" @click="handleToggle(index)">
+        <button
+          type="button"
+          class="accordion__toggle transition duration-300 ease-in-out hover:bg-gray-100"
+          :class="{ 'is-active': isOpen[index] }"
+          @click="handleToggle(index)"
+        >
           <div class="mx-5 mt-2 flex w-full">
-            <img class="w-5 object-contain" :src="work.icon.url+'?w=50'" />
-            <span v-text="work.name" class="ml-2 text-gray-500 font-semibold" />
+            <img class="w-5 object-contain" :src="work.icon.url + '?w=50'" />
+            <span v-text="work.name" class="ml-2 font-semibold text-gray-500" />
             <span v-text="work.category" class="ml-5 text-gray-400" />
           </div>
         </button>
-        <transition name="topSlide" @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave">
-          <div v-show="isOpen[index]" class="topSlide my-3 flex flex-wrap w-full" >
-            <img class="w-full object-contain px-3 md:w-1/2" :src="work.image.url+'?w=500'" />
-            <div class="w-full my-3 px-5 text-gray-500 md:w-1/2">
+        <transition
+          name="topSlide"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @before-leave="beforeLeave"
+          @leave="leave"
+        >
+          <div
+            v-show="isOpen[index]"
+            class="topSlide my-3 flex w-full flex-wrap"
+          >
+            <img
+              class="w-full object-contain px-3 md:w-1/2"
+              :src="work.image.url + '?w=500'"
+            />
+            <div class="my-3 w-full px-5 text-gray-500 md:w-1/2">
               <table class="min-w-full">
                 <tbody>
                   <tr class="border-b">
-                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+                    <td class="whitespace-nowrap px-6 py-4 text-sm font-light">
                       使用技術
                     </td>
-                    <td class="text-sm font-light px-6 py-4">
-                      {{work.tech}}
+                    <td class="px-6 py-4 text-sm font-light">
+                      {{ work.tech }}
                     </td>
                   </tr>
                   <tr class="border-b">
-                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+                    <td class="whitespace-nowrap px-6 py-4 text-sm font-light">
                       制作時期
                     </td>
-                    <td class="text-sm font-light px-6 py-4">
-                      {{work.span}}
+                    <td class="px-6 py-4 text-sm font-light">
+                      {{ work.span }}
                     </td>
                   </tr>
                   <tr class="border-b">
-                    <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
+                    <td class="whitespace-nowrap px-6 py-4 text-sm font-light">
                       開発人数
                     </td>
-                    <td class="text-sm font-light px-6 py-4">
-                      {{work.member}}
+                    <td class="px-6 py-4 text-sm font-light">
+                      {{ work.member }}
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <div class="text-sm m-5">
-                {{work.content}}
+              <div class="m-5 text-sm">
+                {{ work.content }}
               </div>
-              <div class="mx-5 my-2 flex md:m5">
-                <a v-show="work.github1" :href="work.github1" target="_blank" >
-                  <img class="w-6 mr-2" src="@/assets/image/icon/github.png" />
+              <div class="md:m5 mx-5 my-2 flex">
+                <a v-show="work.github1" :href="work.github1" target="_blank">
+                  <img class="mr-2 w-6" src="@/assets/image/icon/github.png" />
                 </a>
-                <a v-show="work.github2" :href="work.github2" target="_blank" >
-                  <img class="w-6 mr-2" src="@/assets/image/icon/github.png" />
+                <a v-show="work.github2" :href="work.github2" target="_blank">
+                  <img class="mr-2 w-6" src="@/assets/image/icon/github.png" />
                 </a>
-                <a v-show="work.document" :href="work.document" target="_blank" >
-                  <img class="w-6 mr-2" src="@/assets/image/icon/whitebord.png" />
+                <a v-show="work.document" :href="work.document" target="_blank">
+                  <img
+                    class="mr-2 w-6"
+                    src="@/assets/image/icon/whitebord.png"
+                  />
                 </a>
               </div>
             </div>
@@ -65,7 +85,7 @@
 
 <script>
 export default {
-  props: ["works"],
+  props: ['works'],
   data() {
     return {
       isOpen: [],
@@ -89,7 +109,7 @@ export default {
       el.style.height = el.scrollHeight + 'px'
     },
     beforeLeave(el) {
-       el.style.height = el.scrollHeight + 'px'
+      el.style.height = el.scrollHeight + 'px'
     },
     leave(el) {
       el.style.height = '0'
@@ -116,7 +136,7 @@ export default {
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: inline-block;
     width: 18px;
     height: 3px;
