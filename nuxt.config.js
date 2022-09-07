@@ -44,11 +44,16 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-webfontloader',
-    
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  webfontloader: {
+    google: {
+      families: ['Lato:400,700', 'Noto+Sans+JP:400,700']
+    }
+  },
 
   microcms: {
     options: {
