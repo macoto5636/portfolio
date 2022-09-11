@@ -124,7 +124,7 @@ export default {
   top: 67px;
   left: 0;
   overflow: scroll;
-  padding: 36px 16px;
+  padding: 16px;
 }
 
 .accordion__toggle {

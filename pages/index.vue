@@ -64,9 +64,9 @@
         />
       </div>
     </div>
-    <div id="about_me" ref="about_me" class="w-full bg-gray-100 pb-8">
+    <div id="about_me" ref="about_me" class="w-full bg-gray-100 pb-8 md:pb-20">
       <Title title="About me" additional="自己紹介"></Title>
-      <div class="mx-auto w-5/6 rounded-lg bg-gray-200 py-8 md:w-4/6 md:py-20">
+      <div class="mx-auto w-5/6 rounded-lg bg-gray-200 py-8 md:w-2/3 md:py-10">
         <div class="flex flex-wrap items-center">
           <div class="w-full md:w-1/2">
             <div>
@@ -84,9 +84,10 @@
             <p class="my-3 text-sm text-gray-500 md:my-5 md:text-base">
               {{ birthday }}
             </p>
-            <p class="text-sm text-gray-500 md:text-base">
-              {{ settings.selfIntroduction }}
-            </p>
+            <div
+              v-html="settings.selfIntroduction"
+              class="text-sm text-gray-500 md:text-base"
+            ></div>
             <div class="mx-1 my-5 flex">
               <a
                 :href="'https://github.com/' + settings.githubAccount"
@@ -125,7 +126,12 @@
               </div>
             </dt>
             <dd :key="carrer.title">
-              <CarrerBox :title="carrer.title" :text="carrer.text"></CarrerBox>
+              <CarrerBox
+                :title="carrer.title"
+                :text="carrer.text"
+                :image="carrer.image"
+                :imageText="carrer.imageText"
+              ></CarrerBox>
             </dd>
           </template>
         </dl>
@@ -206,7 +212,7 @@
     <div id="contact_me" class="w-full bg-gray-100">
       <Title title="Contact" additional="連絡先"></Title>
       <div class="mx-auto w-2/3 pb-20">
-        <div class="md:text-md space-y-3 text-center text-sm text-gray-500">
+        <div class="space-y-3 text-center text-sm text-gray-500 md:text-base">
           <p>
             ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。
           </p>
