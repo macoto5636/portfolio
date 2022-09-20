@@ -39,4 +39,28 @@
     .career dl dd {
         padding: 0.5em 2.0em 3.0em;
     }
+
+    .career dl dt {
+        width: 1.5em;
+        padding: 0em;
+    }
+
+    .career dl dt::after {
+        top: 24px;
+    }
+    
+    .career dl dd {
+        width: calc(100% - 1.5em);
+    }
+}
+
+/* skills*/
+summary {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+summary:hover {
+    cursor: pointer; 
+    background-color: #e5e7eb;
 }

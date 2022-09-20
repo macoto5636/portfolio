@@ -58,10 +58,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div class="m-5 text-sm">
-                {{ work.content }}
-              </div>
-              <div class="md:m5 mx-5 my-2 flex">
+              <div class="md:m5 mx-5 my-3 flex">
                 <a v-show="work.github1" :href="work.github1" target="_blank">
                   <img class="mr-2 w-6" src="@/assets/image/icon/github.png" />
                 </a>
@@ -76,6 +73,7 @@
                 </a>
               </div>
             </div>
+            <div v-html="work.content" class="m-5 text-sm text-gray-500"></div>
           </div>
         </transition>
       </li>
@@ -97,9 +95,6 @@ export default {
   },
   methods: {
     handleToggle(index) {
-      if (!this.isOpen[index]) {
-        this.isOpen = Array(this.works.length).fill(false)
-      }
       this.isOpen.splice(index, 1, !this.isOpen[index])
     },
     beforeEnter(el) {
