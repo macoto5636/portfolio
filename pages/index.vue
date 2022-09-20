@@ -81,12 +81,12 @@
             <p class="text-base font-bold text-gray-500 md:text-lg">
               {{ settings.name }}
             </p>
-            <p class="my-3 text-sm text-gray-500 md:my-5 md:text-base">
+            <p class="my-3 text-sm text-gray-500 md:my-5">
               {{ birthday }}
             </p>
             <div
               v-html="settings.selfIntroduction"
-              class="text-sm text-gray-500 md:text-base"
+              class="text-sm text-gray-500"
             ></div>
             <div class="mx-1 my-5 flex">
               <a
@@ -117,11 +117,11 @@
     </div>
     <div id="carrer" class="mr-10 w-full">
       <Title title="Carrer" additional="これまでとこれから"></Title>
-      <div class="career mx-auto mb-20 md:w-2/3">
+      <div class="career mx-auto pb-10 md:pb-20 md:w-2/3">
         <dl>
           <template v-for="carrer in carrers.contents">
             <dt :key="carrer.period">
-              <div class="text-sm text-gray-500 md:text-base">
+              <div class="hidden text-xs text-gray-500 md:block md:text-base">
                 {{ carrer.period }}
               </div>
             </dt>
@@ -129,6 +129,7 @@
               <CarrerBox
                 :title="carrer.title"
                 :text="carrer.text"
+                :period="carrer.period"
                 :image="carrer.image"
                 :imageText="carrer.imageText"
               ></CarrerBox>
@@ -137,81 +138,94 @@
         </dl>
       </div>
     </div>
-    <div id="skills" class="min-h-screen w-full bg-gray-100">
-      <Title title="Skills" additional="スキルシート"></Title>
-      <div class="mx-10 pb-5 md:mx-auto md:w-2/3 md:pb-20">
-        <p class="text-base font-bold text-gray-500 md:text-lg">▶ 技術</p>
-        <p class="mt-3 text-center text-xs text-gray-500 md:mx-12 md:text-sm">
-          習熟度目安　★：ちょっとさわった　★★：調べながらであれば独力で使える　★★★：プロ
-        </p>
-        <div class="mt-5 mb-8 md:mx-12">
-          <table class="min-w-full">
-            <thead class="border-b">
-              <tr>
-                <th
-                  scope="col"
-                  class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
+    <div id="skills" class="w-full bg-gray-100">
+      <Title title="Skills" additional="技術力"></Title>
+      <div class="mx-5 pb-10 md:mx-auto md:w-2/3 md:pb-20">
+        <details open>
+          <summary class="py-2 text-base font-bold text-gray-500">
+            自分の強みと課題点
+          </summary>
+          <div
+            v-html="settings.analysis"
+            class="mt-3 mb-8 text-sm text-gray-500 md:mx-12"
+          ></div>
+        </details>
+        <details>
+          <summary class="py-2 text-base font-bold text-gray-500">
+            スキルシート
+          </summary>
+          <p class="mt-3 text-center text-xs text-gray-500 md:mx-12 md:text-sm">
+            習熟度目安　★：ちょっとさわった　★★：調べながらであれば独力で使える　★★★：プロ
+          </p>
+          <div class="mt-5 mb-8 md:mx-12">
+            <table class="min-w-full">
+              <thead class="border-b">
+                <tr>
+                  <th
+                    scope="col"
+                    class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
+                  >
+                    カテゴリ
+                  </th>
+                  <th
+                    scope="col"
+                    class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
+                  >
+                    技術名
+                  </th>
+                  <th
+                    scope="col"
+                    class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
+                  >
+                    習熟度
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="skill in skills"
+                  :key="skill.name"
+                  class="border-b transition duration-300 ease-in-out hover:bg-gray-200"
                 >
-                  カテゴリ
-                </th>
-                <th
-                  scope="col"
-                  class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
-                >
-                  技術名
-                </th>
-                <th
-                  scope="col"
-                  class="p-2 text-left text-xs text-gray-500 md:px-6 md:py-4 md:text-sm"
-                >
-                  習熟度
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="skill in skills"
-                :key="skill.name"
-                class="border-b transition duration-300 ease-in-out hover:bg-gray-200"
-              >
-                <td
-                  class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
-                >
-                  {{ skill.category }}
-                </td>
-                <td
-                  class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
-                >
-                  {{ skill.name }}
-                </td>
-                <td
-                  class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
-                >
-                  {{ skill.level | levelToStar }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-base font-bold text-gray-500 md:text-lg">▶ 資格</p>
-        <ul
-          class="mx-12 mt-3 list-disc space-y-2 text-sm text-gray-500 md:text-base"
-        >
-          <li v-for="exam in exams" :key="exam">
-            {{ exam }}
-          </li>
-        </ul>
+                  <td
+                    class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
+                  >
+                    {{ skill.category }}
+                  </td>
+                  <td
+                    class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
+                  >
+                    {{ skill.name }}
+                  </td>
+                  <td
+                    class="whitespace-nowrap p-2 text-xs font-light text-gray-600 md:px-6 md:py-4 md:text-sm"
+                  >
+                    {{ skill.level | levelToStar }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details>
+          <summary class="py-2 text-base font-bold text-gray-500">資格</summary>
+          <ul class="mx-12 mt-3 list-disc space-y-2 text-sm text-gray-500">
+            <li v-for="exam in exams" :key="exam">
+              {{ exam }}
+            </li>
+          </ul>
+        </details>
       </div>
     </div>
     <div id="works" class="mr-10 w-full">
       <Title title="Works" additional="成果物"></Title>
-      <div class="mx-auto w-full pb-5 md:w-2/3 md:pb-20">
-        <Accordion :works="works.contents"></Accordion>
+      <div class="mx-auto w-full pb-10 md:w-2/3 md:pb-20">
+        <AccordionWork :works="works.contents"></AccordionWork>
       </div>
     </div>
     <div id="contact_me" class="w-full bg-gray-100">
       <Title title="Contact" additional="連絡先"></Title>
-      <div class="mx-auto w-2/3 pb-20">
+      <div class="mx-5 pb-10 md:w-2/3 md:pb-20">
         <div class="space-y-3 text-center text-sm text-gray-500 md:text-base">
           <p>
             ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。
