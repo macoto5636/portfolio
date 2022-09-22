@@ -117,7 +117,7 @@
     </div>
     <div id="carrer" class="mr-10 w-full">
       <Title title="Carrer" additional="これまでとこれから"></Title>
-      <div class="career mx-auto pb-10 md:pb-20 md:w-2/3">
+      <div class="career mx-auto pb-10 md:w-2/3 md:pb-20">
         <dl>
           <template v-for="carrer in carrers.contents">
             <dt :key="carrer.period">
@@ -225,7 +225,7 @@
     </div>
     <div id="contact_me" class="w-full bg-gray-100">
       <Title title="Contact" additional="連絡先"></Title>
-      <div class="mx-5 pb-10 md:w-2/3 md:pb-20">
+      <div class="mx-5 pb-10 md:mx-auto md:w-2/3 md:pb-20">
         <div class="space-y-3 text-center text-sm text-gray-500 md:text-base">
           <p>
             ここまでご覧いただきありがとうございました！少しでも私のことを知っていただければ幸いです。
